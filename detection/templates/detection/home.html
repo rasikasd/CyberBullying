@@ -1,0 +1,7 @@
+{% extends "detection/base.html" %}
+{% block content %}
+<h1>new Home page</h1>    
+  {% for ind, row in df.iterrows %}
+    <strong class="primary-font">Tweets:{{ row.Tweets }}</strong>
+  {% endfor %}
+{% endblock content %}
