@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Profile
 import tweepy
 from tweepy import OAuthHandler
 from tweepy import Stream
@@ -15,25 +16,9 @@ ACCESS_TOKEN_SECRET = 'nJvwYjNNn5QZmpoOQieOB4WDx8dJfSGrn9P7GxXGMmem9'
 CONSUMER_KEY = 'Z1iHhc5Gw34CHRrftyDtTNBf1'
 CONSUMER_SECRET = 'OCV2x85aB6XZoIwIit7JeIVovIP2YpN3rXVv63KcrRgUobP8Zf'
 
-posts = [
-    {
-        'author': 'CoreyMS',
-        'title': 'Blog Post 1',
-        'content': 'First post content',
-        'date_posted': 'August 27, 2018'
-    },
-    {
-        'author': 'Jane Doe',
-        'title': 'Blog Post 2',
-        'content': 'Second post content',
-        'date_posted': 'August 28, 2018'
-    }
-]
-
-
 def home(request):
     context = {
-        'posts': posts
+        'profile': Profile.objects.all()
     }
     return render(request, 'detection/home.html', context)
 
