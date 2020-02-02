@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rest_framework',
+    'rest_framework.authtoken',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -132,6 +137,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# AUTH_USER_MODEL = 'users.User'
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -140,7 +146,6 @@ MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-#LOGIN_REDIRECT_URL = 'myclientapp_owner_list'
 
 LOGIN_REDIRECT_URL = 'detection-home'
 LOGIN_URL = 'login'

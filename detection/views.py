@@ -7,9 +7,12 @@ from tweepy import API
 from tweepy import Cursor
 import numpy as np
 import pandas as pd
+from django.contrib.auth.decorators import login_required
 import matplotlib.pyplot as plt
 from textblob import TextBlob
 import re
+
+
 
 ACCESS_TOKEN = '1206572403309965313-ZDeZ14s1m1WxZr8f9gpHHPwNzmWDpq'
 ACCESS_TOKEN_SECRET = 'nJvwYjNNn5QZmpoOQieOB4WDx8dJfSGrn9P7GxXGMmem9'
@@ -23,12 +26,18 @@ def home(request):
     return render(request, 'detection/home.html', context)
 
 
+
+
 def about(request):
     return render(request, 'detection/about.html', {'title': 'About'})
 
 
 def moderate(request):
     return render(request, 'detection/moderate.html', {'title': 'Moderate'})
+
+@login_required
+def dashboard(request):
+    return render(request, 'detection/dashboard.html', {'title': 'Dashboard'})
 
 
 
